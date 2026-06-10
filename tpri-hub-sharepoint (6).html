@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TPRI Free Trial Hub — CS &amp; Sales</title>
+<style>
+/* ── DILIGENT BRAND TOKENS ── */
+:root {
+  --navy:        #1A1F6E;
+  --navy-dark:   #13175A;
+  --navy-light:  #2A307E;
+  --red:         #D0021B;
+  --red-hover:   #B00218;
+  --white:       #FFFFFF;
+  --bg-page:     #F4F5F9;
+  --bg-card:     #FFFFFF;
+  --bg-light:    #F4F5F9;
+  --bg-mid:      #ECEDF5;
+  --border:      #D8DAE8;
+  --border-dark: #B0B3CC;
+  --text:        #1B1B1B;
+  --text-mid:    #4B5060;
+  --text-light:  #6B7280;
+  --link:        #343CED;
+
+  --col-3pm:        #EEF1FF;
+  --col-3pm-border: #343CED;
+  --col-3pm-text:   #1A1F6E;
+  --col-d1p:        #EDFBF0;
+  --col-d1p-border: #2E7D32;
+  --col-d1p-text:   #1B4332;
+
+  --green:       #2E7D32;
+  --green-bg:    #E8F5E9;
+  --amber:       #B45309;
+  --amber-bg:    #FEF3C7;
+  --warn-border: #F59E0B;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+  height: auto;
+  overflow-x: hidden;
+  /* Force top on load */
+  scroll-behavior: auto;
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px 60px;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--navy);
+  border-left: 5px solid var(--red);
+  border-radius: 0 0 8px 8px;
+  padding: 36px 44px;
+  margin: 0 0 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  right: -60px; top: -60px;
+  width: 240px; height: 240px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  pointer-events: none;
+}
+.hero-text { flex: 1; }
+.hero-eyebrow {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: rgba(255,255,255,0.12);
+  color: #fff;
+  font-size: 10.5px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase;
+  padding: 4px 11px; border-radius: 20px; margin-bottom: 13px;
+}
+.hero-dot { width: 7px; height: 7px; border-radius: 50%; background: #4CAF50; flex-shrink: 0; }
+.hero h1 {
+  color: #fff;
+  font-size: 26px; font-weight: 700; line-height: 1.2;
+  margin-bottom: 8px;
+}
+.hero-sub { color: rgba(255,255,255,0.68); font-size: 13px; max-width: 460px; }
+.hero-badges { display: flex; flex-direction: column; gap: 8px; flex-shrink: 0; }
+.hero-badge {
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: 6px;
+  padding: 9px 16px;
+  color: #fff;
+  font-size: 11.5px;
+  white-space: nowrap;
+  text-align: center;
+}
+.hero-badge strong { display: block; font-size: 20px; font-weight: 700; line-height: 1.1; margin-bottom: 2px; }
+
+/* ── NAV TABS ── */
+.nav-tabs {
+  display: flex; gap: 2px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 6px 8px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  box-shadow: 0 1px 3px rgba(26,31,110,0.07);
+}
+.nav-tab {
+  padding: 8px 15px; cursor: pointer; border: none; background: none;
+  color: var(--text-mid); font-size: 12.5px; font-weight: 500;
+  border-radius: 5px;
+  transition: color 0.14s, background 0.14s;
+  white-space: nowrap;
+  font-family: inherit;
+}
+.nav-tab:hover { color: var(--navy); background: var(--bg-light); }
+.nav-tab.active {
+  color: var(--white);
+  background: var(--navy);
+  font-weight: 600;
+}
+
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+
+/* ── SECTION TITLES ── */
+.section-title {
+  font-size: 15px; font-weight: 700; margin-bottom: 14px;
+  display: flex; align-items: center; gap: 8px;
+  padding-left: 12px;
+  border-left: 3px solid var(--red);
+  color: var(--navy);
+}
+.section-title span { font-size: 17px; }
+
+/* ── STATUS STRIP ── */
+.status-strip {
+  background: var(--green-bg);
+  border: 1.5px solid var(--green);
+  border-radius: 8px;
+  padding: 13px 18px;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.status-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+.status-label { color: var(--green); font-weight: 700; font-size: 13px; }
+
+/* ── DATA TABLE ── */
+.data-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.data-table thead th {
+  background: var(--navy);
+  color: #fff;
+  font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.07em;
+  padding: 9px 14px; text-align: left;
+}
+.data-table thead th:first-child { border-radius: 6px 0 0 0; }
+.data-table thead th:last-child  { border-radius: 0 6px 0 0; }
+.data-table tbody td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:nth-child(even) td { background: var(--bg-light); }
+.data-table tbody tr:hover td { background: var(--bg-mid); }
+.data-table tbody td:first-child { font-weight: 600; color: var(--text-mid); font-size: 12px; width: 220px; }
+
+/* ── GRID ── */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 22px; }
+.grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; margin-bottom: 22px; }
+
+/* ── CARDS ── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 18px 20px;
+}
+.card-title {
+  font-weight: 700; font-size: 13.5px; margin-bottom: 8px;
+  color: var(--navy);
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.card-sub { color: var(--text-light); font-size: 12px; margin-bottom: 10px; }
+
+/* ── COMPARE TABLE ── */
+.compare-wrap { overflow-x: auto; margin-bottom: 22px; }
+.compare-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 580px; }
+.compare-table th {
+  padding: 11px 14px; text-align: left; font-size: 12.5px; font-weight: 700;
+  border-bottom: 2px solid var(--border-dark);
+}
+.compare-table th.th-label { background: var(--navy); color: #fff; width: 170px; border-radius: 6px 0 0 0; }
+.compare-table th.th-3pm { background: var(--col-3pm); color: var(--col-3pm-text); border-left: 3px solid var(--col-3pm-border); }
+.compare-table th.th-d1p { background: var(--col-d1p); color: var(--col-d1p-text); border-left: 3px solid var(--col-d1p-border); }
+.compare-table td { padding: 9px 14px; border-bottom: 1px solid var(--border); vertical-align: top; font-size: 13px; }
+.compare-table tr:last-child td { border-bottom: none; }
+.compare-table tr:hover td { background: var(--bg-light); }
+.compare-table td.row-label {
+  font-weight: 600; font-size: 11.5px; color: var(--text-mid);
+  text-transform: uppercase; letter-spacing: 0.04em;
+  background: var(--bg-light);
+  width: 170px;
+}
+.compare-table tr.row-group td {
+  background: var(--navy);
+  color: rgba(255,255,255,0.7);
+  font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+  padding: 5px 14px;
+}
+.compare-table td.cell-3pm { border-left: 3px solid var(--col-3pm-border); }
+.compare-table td.cell-d1p { border-left: 3px solid var(--col-d1p-border); }
+.icon-yes { color: var(--green); font-weight: 700; }
+.icon-no  { color: var(--red);   font-weight: 700; }
+
+/* ── CALLOUT ── */
+.callout {
+  background: #FFF8E1;
+  border: 1.5px solid var(--warn-border);
+  border-left: 4px solid var(--amber);
+  border-radius: 6px;
+  padding: 12px 16px;
+  color: #5C3D00;
+  font-size: 13px;
+  margin-bottom: 18px;
+  display: flex; align-items: flex-start; gap: 9px;
+}
+.callout-icon { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+/* ── WARN ── */
+.warn {
+  background: #FFF3E0;
+  border: 1px solid var(--warn-border);
+  border-radius: 6px;
+  padding: 9px 13px;
+  color: #5a3000;
+  font-size: 12px;
+  margin: 8px 0;
+  display: flex; align-items: flex-start; gap: 7px;
+}
+
+/* ── STEPS ── */
+.steps { list-style: none; counter-reset: step; }
+.steps li {
+  counter-increment: step;
+  display: flex; align-items: flex-start; gap: 11px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+.steps li:last-child { border-bottom: none; }
+.steps li::before {
+  content: counter(step);
+  min-width: 22px; height: 22px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10.5px; font-weight: 700;
+  flex-shrink: 0; margin-top: 2px;
+}
+
+/* ── COHORT CARDS ── */
+.cohort { border-radius: 8px; padding: 16px 18px; height: 100%; }
+.cohort.c1 { background: var(--green-bg); border: 1.5px solid var(--green); }
+.cohort.c1 .cohort-title { color: var(--green); }
+.cohort.c2 { background: var(--amber-bg); border: 1.5px solid var(--warn-border); }
+.cohort.c2 .cohort-title { color: var(--amber); }
+.cohort.c3 { background: #FEE2E2; border: 1.5px solid #F87171; }
+.cohort.c3 .cohort-title { color: #991B1B; }
+.cohort-title { font-weight: 700; font-size: 13.5px; margin-bottom: 4px; }
+.cohort-sub { font-size: 11.5px; opacity: 0.75; margin-bottom: 10px; color: var(--text-mid); }
+.cohort-section {
+  font-size: 10.5px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.07em; margin: 9px 0 4px;
+  color: var(--text-mid);
+}
+.cohort ul { padding-left: 15px; font-size: 12.5px; }
+.cohort ul li { margin-bottom: 3px; }
+.cohort-assets {
+  margin-top: 10px; padding-top: 8px;
+  border-top: 1px dashed var(--border-dark);
+  font-size: 11px; color: var(--text-light);
+}
+
+/* ── RESOURCE ITEMS ── */
+.resource-group { margin-bottom: 20px; }
+.resource-group-title {
+  font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--navy); margin-bottom: 9px;
+  padding: 0 0 6px 10px;
+  border-left: 3px solid var(--red);
+}
+.resource-list { display: flex; flex-direction: column; gap: 5px; }
+.resource-item {
+  display: flex; align-items: center; gap: 9px;
+  padding: 9px 13px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 13px;
+  transition: border-color 0.12s, background 0.12s;
+}
+.resource-item:hover { background: var(--bg-mid); border-color: var(--navy); }
+.resource-icon { font-size: 15px; flex-shrink: 0; }
+.resource-label { flex: 1; font-weight: 500; }
+.resource-tag {
+  font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 20px;
+  white-space: nowrap;
+}
+.tag-green { background: var(--green-bg); color: var(--green); }
+.tag-blue  { background: var(--col-3pm); color: var(--navy); }
+.tag-amber { background: var(--amber-bg); color: var(--amber); }
+.tag-gray  { background: var(--bg-mid); color: var(--text-light); }
+.resource-arrow { color: var(--text-light); font-size: 13px; }
+
+/* ── ACCORDION ── */
+.accordion {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+.accordion-intro {
+  padding: 10px 14px;
+  background: var(--navy);
+  color: rgba(255,255,255,0.8);
+  font-size: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.accordion-intro a { color: rgba(255,255,255,0.9); text-decoration: underline; }
+.acc-item { border-bottom: 1px solid var(--border); }
+.acc-item:last-child { border-bottom: none; }
+.acc-header {
+  width: 100%; background: none; border: none; cursor: pointer;
+  display: flex; align-items: center; gap: 9px;
+  padding: 11px 14px; text-align: left;
+  color: var(--text); font-size: 13px;
+  transition: background 0.1s;
+  font-family: inherit;
+}
+.acc-header:hover { background: var(--bg-light); }
+.acc-label-main { flex: 1; font-weight: 600; font-size: 13px; color: var(--navy); }
+.acc-label-sub { font-size: 11px; color: var(--text-light); margin-top: 1px; }
+.acc-chevron { color: var(--red); font-size: 10px; transition: transform 0.18s; flex-shrink: 0; font-weight: 700; }
+.acc-item.open .acc-chevron { transform: rotate(180deg); }
+.acc-body {
+  display: none;
+  padding: 14px 16px;
+  font-size: 13px; line-height: 1.7;
+  border-top: 1px solid var(--border);
+  background: var(--bg-card);
+}
+.acc-item.open .acc-body { display: block; }
+.acc-body strong { display: block; margin-bottom: 3px; color: var(--navy); }
+.acc-body p { margin-bottom: 9px; }
+.acc-body p:last-child { margin-bottom: 0; }
+.acc-trigger {
+  font-size: 11px; color: var(--text-light);
+  display: flex; gap: 5px; flex-wrap: wrap; margin-bottom: 9px;
+}
+.acc-trigger span {
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 4px; padding: 1px 6px; font-size: 10.5px;
+}
+.acc-body ol, .acc-body ul { padding-left: 17px; margin-bottom: 9px; }
+.acc-body li { margin-bottom: 3px; }
+
+/* ── OBJECTIONS ── */
+.objection { margin-bottom: 14px; }
+.objection-q {
+  font-weight: 700; font-size: 13px; margin-bottom: 4px;
+  padding-left: 12px; border-left: 3px solid var(--red);
+  color: var(--navy);
+}
+.objection-a { font-size: 13px; line-height: 1.65; color: var(--text); padding-left: 15px; }
+
+/* ── COMPETITIVE TABLE ── */
+.comp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.comp-table thead th {
+  background: var(--navy);
+  color: #fff;
+  text-align: left; padding: 9px 13px;
+  font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em;
+}
+.comp-table thead th:first-child { border-radius: 6px 0 0 0; }
+.comp-table thead th:last-child  { border-radius: 0 6px 0 0; }
+.comp-table tbody td { padding: 9px 13px; border-bottom: 1px solid var(--border); vertical-align: top; font-size: 13px; }
+.comp-table tbody tr:last-child td { border-bottom: none; }
+.comp-table tbody tr:hover td { background: var(--bg-light); }
+.comp-name { font-weight: 600; color: var(--navy); }
+
+/* ── ROUTING RULES ── */
+.routing-rules { display: flex; flex-direction: column; gap: 7px; margin-top: 12px; }
+.routing-rule {
+  display: flex; align-items: center; gap: 9px;
+  padding: 9px 13px;
+  background: var(--bg-light);
+  border: 1px solid var(--border);
+  border-radius: 6px; font-size: 13px;
+}
+.routing-rule .arrow { color: var(--red); font-weight: 700; }
+.routing-rule .dest { font-weight: 700; color: var(--navy); }
+
+/* ── PORTFOLIO ROWS ── */
+.portfolio-grid { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+.portfolio-row {
+  display: flex; align-items: flex-start; gap: 13px;
+  padding: 12px 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--navy);
+  border-radius: 0 6px 6px 0;
+  font-size: 13px;
+}
+.portfolio-product { font-weight: 700; min-width: 170px; flex-shrink: 0; color: var(--navy); }
+.portfolio-value { color: var(--text); line-height: 1.55; }
+
+/* ── CONTACTS ── */
+.contacts-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+.contact-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px; padding: 13px 15px;
+  display: flex; align-items: center; gap: 11px;
+  min-width: 190px; flex: 1;
+}
+.contact-avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--navy);
+  color: #fff; font-weight: 700; font-size: 13px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; border: 2px solid var(--red);
+}
+.contact-name { font-weight: 600; font-size: 13px; color: var(--navy); }
+.contact-role { font-size: 11.5px; color: var(--text-light); }
+.contact-email { font-size: 11px; color: var(--link); text-decoration: none; }
+.contact-email:hover { text-decoration: underline; }
+
+/* ── STAT CARDS ── */
+.stat-card {
+  background: var(--navy);
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  color: #fff;
+}
+.stat-number { font-size: 34px; font-weight: 700; line-height: 1; color: #fff; margin-bottom: 6px; }
+.stat-label { font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.9); margin-bottom: 4px; }
+.stat-sub { font-size: 11.5px; color: rgba(255,255,255,0.6); }
+.stat-card .stat-accent { color: var(--red); font-size: 14px; font-weight: 700; }
+
+/* ── MISC ── */
+.divider { height: 1px; background: var(--border); margin: 24px 0; }
+.mb-8  { margin-bottom: 8px; }
+.mb-16 { margin-bottom: 16px; }
+.mb-20 { margin-bottom: 20px; }
+.link { color: var(--link); text-decoration: none; }
+.link:hover { text-decoration: underline; }
+
+/* ── PRINT ── */
+@media print {
+  body { background: #fff; print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+  .nav-tabs { display: none; }
+  .tab-panel { display: block !important; }
+  .hero { background: var(--navy) !important; }
+  section, .card, .cohort, .resource-item { break-inside: avoid; }
+  button { display: none !important; }
+}
+
+@media (max-width: 720px) {
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  .hero { flex-direction: column; padding: 24px 20px; }
+  .hero-badges { flex-direction: row; flex-wrap: wrap; }
+  .page { padding: 0 12px 40px; }
+  .compare-table td.row-label { width: 110px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+<div id="top" class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-eyebrow"><span class="hero-dot"></span> Free Trial Live · June 2026</div>
+      <h1>Third-Party Risk Intel (TPRI)<br>Free Trial Hub</h1>
+      <div class="hero-sub">Single source of truth for the TPRI free trial motion · CS &amp; Sales · Q2–Q3 2026 · Internal</div>
+    </div>
+    <div class="hero-badges">
+      <div class="hero-badge"><strong>100</strong>3PM Screenings</div>
+      <div class="hero-badge"><strong>50</strong>D1P Screenings</div>
+      <div class="hero-badge"><strong>4 min</strong>vs. 4 hours</div>
+    </div>
+  </div>
+
+  <!-- NAV TABS -->
+  <div class="nav-tabs" role="tablist">
+    <button class="nav-tab active" onclick="switchTab(event,'overview')" role="tab">Overview &amp; Status</button>
+    <button class="nav-tab" onclick="switchTab(event,'paths')" role="tab">Activation Paths</button>
+    <button class="nav-tab" onclick="switchTab(event,'compare')" role="tab">3PM vs D1P</button>
+    <button class="nav-tab" onclick="switchTab(event,'playbook')" role="tab">CS Playbook</button>
+    <button class="nav-tab" onclick="switchTab(event,'comms')" role="tab">Emails &amp; Pendo</button>
+    <button class="nav-tab" onclick="switchTab(event,'objections')" role="tab">Objections &amp; Competitive</button>
+    <button class="nav-tab" onclick="switchTab(event,'resources')" role="tab">Resources</button>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- TAB: OVERVIEW                               -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="tab-overview" class="tab-panel active">
+    <div class="status-strip">
+      <span class="status-dot"></span>
+      <span class="status-label">Product Status — Free Trial Globally Live</span>
+    </div>
+
+    <div class="mb-20">
+      <table class="data-table">
+        <thead><tr><th>Parameter</th><th>Detail</th></tr></thead>
+        <tbody>
+          <tr><td>3PM Go-Live</td><td>June 3, 2026 (EU · US · Canada · APAC · South Africa)</td></tr>
+          <tr><td>D1P Tile Go-Live</td><td>June 12, 2026 — tile surfaced for all eligible D1P orgs</td></tr>
+          <tr><td>Full Go-Live (all paths + nudges)</td><td>June 15, 2026</td></tr>
+          <tr><td>3PM Trial Offer</td><td>100 free AI Screenings per tenant — usage-based, no time limit</td></tr>
+          <tr><td>D1P Trial Offer</td><td>50 free screenings per tenant — usage-based, no time limit</td></tr>
+          <tr><td>SFDC Trigger — 3PM</td><td>50 screenings → auto-creates SFDC opp + notifies AE &amp; CSM</td></tr>
+          <tr><td>SFDC Trigger — D1P</td><td>25 screenings → auto-creates SFDC opp + notifies AE &amp; CSM</td></tr>
+          <tr><td>Pricing (post-trial)</td><td>3PM Add-On from $5K/yr · Full TPRI via D1P from $35K/yr</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-title"><span>🤖</span> What Is Third-Party Risk Intel?</div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">The 30-second pitch</div>
+        <p style="font-size:13px;line-height:1.7;">Third-Party Risk Intel is an AI agent that investigates your third parties for you. You give it a company name — it resolves the entity, maps ownership structures, screens against sanctions, PEPs, watchlists, and adverse media, and delivers a citation-backed risk narrative in minutes, not hours.</p>
+        <p style="font-size:13px;line-height:1.7;margin-top:10px;"><strong>What normally takes 2–4 hours takes TPRI 4 minutes.</strong> It surfaces an average of 3+ hidden ownership connections per third party, eliminates false positives, and produces a fully auditable report.</p>
+      </div>
+      <div class="card">
+        <div class="card-title">The 3-Tier Model</div>
+        <table class="data-table">
+          <thead><tr><th>#</th><th>Product</th><th>Role</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td><strong>3PM</strong></td><td>System of record — workflow, due diligence, approvals</td></tr>
+            <tr><td>2</td><td><strong>TPRI</strong></td><td>Agentic investigation — accelerates triage, surfaces hidden risk</td></tr>
+            <tr><td>3</td><td><strong>DDS</strong></td><td>Deep, human-led investigations for complex, high-risk cases</td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:12px;margin-top:10px;color:var(--text-light);">TPRI qualifies risk earlier and sends better, citation-backed cases into DDS — so analyst capacity is reserved for what actually needs it.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- TAB: ACTIVATION PATHS                       -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="tab-paths" class="tab-panel">
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-title">Path 1 — 3PM Customers</div>
+        <div class="card-sub">~200 existing Third-Party Manager accounts</div>
+        <ol class="steps">
+          <li>CSM confirms interest / account eligibility</li>
+          <li>Admin goes to <strong>Settings → AI Opt-In</strong> and agrees to AI T&amp;Cs</li>
+          <li>Admin navigates to <strong>Tenant Features &amp; Settings → AI Services → AI Screening</strong> → enables it</li>
+          <li>
+            <div>
+              <strong>Admin creates custom role with AI Screening permissions + assigns users</strong>
+              <div class="warn" style="margin-top:7px;">
+                ⚠️ <span>Most common blocker. Out-of-box roles (Client Admin, Client Manager, Client User) do <em>not</em> include AI Screening.</span>
+              </div>
+            </div>
+          </li>
+          <li>User navigates to any third-party profile → AI Screening tab → enter company name → run screening</li>
+          <li>CSM sends Trial Welcome email (E3) + attaches Getting Started Guide</li>
+        </ol>
+        <div class="warn" style="margin-top:12px;">⚠️ <span><strong>EU tenants only:</strong> After enabling, change default search count from 100 → <strong>101</strong> and click Save. Fixes "No searches remaining" display bug. Cosmetic only — searches are available.</span></div>
+      </div>
+      <div>
+        <div class="card mb-16">
+          <div class="card-title">Path 2 — D1P Customers</div>
+          <div class="card-sub">Broader D1P base — tile surfaced June 12</div>
+          <ol class="steps">
+            <li>Customer receives Gainsight email that trial is ready</li>
+            <li>Admin logs in to Diligent One → finds <strong>TPRI tile on Launchpad</strong></li>
+            <li>
+              <div>
+                Admin clicks tile → <strong>accepts T&amp;Cs</strong> (one-time, ~30 sec)
+                <div class="warn" style="margin-top:7px;">⚠️ <span>Most common D1P blocker — check this first before any other troubleshooting.</span></div>
+              </div>
+            </li>
+            <li>All org users now have access — no role setup needed</li>
+            <li>User enters company name + country → result in 2–5 minutes</li>
+            <li>Pendo guide fires on first login to walk admin through steps</li>
+          </ol>
+        </div>
+        <div class="card">
+          <div class="card-title">Path 3 — Net-New Prospects <span style="font-size:11.5px;font-weight:400;color:var(--text-light);">Phase 2 · July+</span></div>
+          <p style="font-size:13px;line-height:1.6;">Prospect clicks "Try TPRI" from product page → enters business details → runs embedded search → form submit + search = qualified lead → SFDC opp auto-created → Sales Specialist notified.</p>
+        </div>
+      </div>
+    </div>
+    <div class="callout">
+      <span class="callout-icon">💡</span>
+      <span><strong>Key insight:</strong> Any customer — including 3PM-only, Boards, or Entities customers — can get a D1P org provisioned for the full TPRI experience. Always recommend D1P for the richest trial unless the customer specifically insists on staying inside their 3PM workflow.</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- TAB: COMPARE                                -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="tab-compare" class="tab-panel">
+    <div class="compare-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th class="th-label"></th>
+            <th class="th-3pm">🔷 TPRI in 3PM</th>
+            <th class="th-d1p">🟢 TPRI in D1P</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="row-group"><td colspan="3">Setup &amp; Access</td></tr>
+          <tr>
+            <td class="row-label">Who it's for</td>
+            <td class="cell-3pm">Existing Third-Party Manager customers (~200 accounts)</td>
+            <td class="cell-d1p">Broader Diligent One Platform customer base</td>
+          </tr>
+          <tr>
+            <td class="row-label">Where they access it</td>
+            <td class="cell-3pm">Inside 3PM: Settings → AI Services → AI Screening</td>
+            <td class="cell-d1p">TPRI tile on the Diligent One Launchpad</td>
+          </tr>
+          <tr>
+            <td class="row-label">How admin activates</td>
+            <td class="cell-3pm">3 steps: AI Opt-In T&amp;Cs → Enable AI Screening → Create custom role + assign users</td>
+            <td class="cell-d1p">1 step: Click T&amp;Cs on TPRI tile (~30 seconds, no contracts)</td>
+          </tr>
+          <tr>
+            <td class="row-label">Trial offer</td>
+            <td class="cell-3pm"><strong>100 free screenings</strong> — usage-based, no time limit</td>
+            <td class="cell-d1p"><strong>50 free screenings</strong> — usage-based, no time limit</td>
+          </tr>
+          <tr>
+            <td class="row-label">User access</td>
+            <td class="cell-3pm">Must manually assign custom role with AI Screening permissions ⚠️ Most common blocker</td>
+            <td class="cell-d1p">All org users get access once admin accepts T&amp;Cs</td>
+          </tr>
+          <tr class="row-group"><td colspan="3">Features</td></tr>
+          <tr>
+            <td class="row-label">Core AI capabilities</td>
+            <td class="cell-3pm">Entity resolution · Sanctions/PEPs · Adverse media · Ownership mapping · AI risk narrative + audit trail</td>
+            <td class="cell-d1p">Same core capabilities + richer full feature set</td>
+          </tr>
+          <tr>
+            <td class="row-label">Screening scope</td>
+            <td class="cell-3pm">Only third parties already in your 3PM records</td>
+            <td class="cell-d1p">Any company, globally — not limited to existing records</td>
+          </tr>
+          <tr>
+            <td class="row-label">Workflow integration</td>
+            <td class="cell-3pm">Embedded in 3PM — no context switching</td>
+            <td class="cell-d1p">Standalone via Launchpad tile</td>
+          </tr>
+          <tr>
+            <td class="row-label">Report output</td>
+            <td class="cell-3pm">AI risk narrative, PDF download</td>
+            <td class="cell-d1p">Same + Evidence Collection (EVA) — D1P only</td>
+          </tr>
+          <tr>
+            <td class="row-label">Dashboard</td>
+            <td class="cell-3pm"><span class="icon-no">✗</span> Not available</td>
+            <td class="cell-d1p"><span class="icon-yes">✓</span> Full dashboard with analytics</td>
+          </tr>
+          <tr>
+            <td class="row-label">Continuous monitoring</td>
+            <td class="cell-3pm"><span class="icon-no">✗</span> Not available</td>
+            <td class="cell-d1p"><span class="icon-yes">✓</span> Available</td>
+          </tr>
+          <tr>
+            <td class="row-label">API export</td>
+            <td class="cell-3pm"><span class="icon-no">✗</span> Not available</td>
+            <td class="cell-d1p"><span class="icon-yes">✓</span> Available</td>
+          </tr>
+          <tr>
+            <td class="row-label">Evidence Collection (EVA)</td>
+            <td class="cell-3pm"><span class="icon-no">✗</span> Not available</td>
+            <td class="cell-d1p"><span class="icon-yes">✓</span> Available</td>
+          </tr>
+          <tr class="row-group"><td colspan="3">Commercial</td></tr>
+          <tr>
+            <td class="row-label">SFDC opp trigger</td>
+            <td class="cell-3pm">50 screenings → auto-creates opp + notifies AE &amp; CSM</td>
+            <td class="cell-d1p">25 screenings → auto-creates opp + notifies AE &amp; CSM</td>
+          </tr>
+          <tr>
+            <td class="row-label">Common blockers</td>
+            <td class="cell-3pm">Custom role not set up; AI Opt-In step missed</td>
+            <td class="cell-d1p">Admin hasn't accepted T&amp;Cs; users don't know where tile is</td>
+          </tr>
+          <tr>
+            <td class="row-label">CS ask</td>
+            <td class="cell-3pm">Confirm AI Screening enabled + roles assigned; walk admin through first screening live</td>
+            <td class="cell-d1p">Confirm T&amp;Cs accepted; point to tile + Getting Started Guide</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <span class="callout-icon">💡</span>
+      <span><strong>Note on dual access:</strong> A client can technically have TPRI on both D1P (50 screenings) and 3PM (100 screenings) = 150 total during the trial. We allow this to maximize feedback, but always guide customers toward D1P for the richer experience.</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- TAB: CS PLAYBOOK                            -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="tab-playbook" class="tab-panel">
+    <div class="section-title"><span>🎯</span> Three Cohorts — Three Plays</div>
+    <div class="grid-3 mb-20">
+      <div class="cohort c1">
+        <div class="cohort-title">🏆 Cohort 1 — White Glove</div>
+        <div class="cohort-sub">Tier 1 high-touch conversion</div>
+        <div class="cohort-section">Who</div>
+        <p style="font-size:12.5px;">High-ARR, high-ICP accounts most likely to convert. Examples: Flowserve, Medtronic, Coca-Cola, Hillenbrand.</p>
+        <div class="cohort-section">Your Play</div>
+        <ul>
+          <li>Proactive 1:1 outreach using Trial Pitch One-Pager</li>
+          <li>Walk through T&amp;Cs and run first 1–3 screenings live</li>
+          <li>Book mid-trial check-in at ~50% usage</li>
+          <li>Goal: turn trial into SFDC-qualified opportunity</li>
+        </ul>
+        <div class="cohort-assets">Use: Trial Pitch One-Pager · Activation Playbook · E3 Welcome</div>
+      </div>
+      <div class="cohort c2">
+        <div class="cohort-title">⏸ Cohort 2 — Idle</div>
+        <div class="cohort-sub">Access on, zero screenings</div>
+        <div class="cohort-section">Who</div>
+        <p style="font-size:12.5px;">AI Screening enabled (3PM) or T&amp;Cs accepted (D1P) — but zero screenings run. As of May: 36 idle 3PM tenants.</p>
+        <div class="cohort-section">Your Play</div>
+        <ul>
+          <li>Gainsight nudges are firing (E5, E6) — your 1:1 breaks the pattern</li>
+          <li>3PM: check custom role setup</li>
+          <li>D1P: check admin shared access with users</li>
+          <li>"Pick one vendor from the last 30 days and run it — the comparison makes value clear fast"</li>
+        </ul>
+        <div class="cohort-assets">Use: E6 No Screenings Nudge · Getting Started Guide</div>
+      </div>
+      <div class="cohort c3">
+        <div class="cohort-title">📉 Cohort 3 — Dropped Off</div>
+        <div class="cohort-sub">Ran screenings, then went quiet</div>
+        <div class="cohort-section">Who</div>
+        <p style="font-size:12.5px;">Ran 1–5 screenings in week one, then stopped. Experienced some value but didn't build the habit.</p>
+        <div class="cohort-section">Your Play</div>
+        <ul>
+          <li>Mid-trial re-engagement referencing what they screened</li>
+          <li>Suggest: highest-risk active vendor, recently onboarded TP, known false-positive candidate</li>
+          <li>Hook: "You have [X] screenings left — let's use them on the right things"</li>
+        </ul>
+        <div class="cohort-assets">Use: E7 Mid-Trial Check-In · Pendo Idle Re-engagement (auto at 14 days)</div>
+      </div>
+    </div>
+
+    <div class="section-title"><span>🏁</span> What Success Looks Like</div>
+    <div class="grid-3">
+      <div class="stat-card">
+        <div class="stat-number">1+</div>
+        <div class="stat-label">Activation</div>
+        <div class="stat-sub">T&amp;Cs accepted + at least 1 screening run</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">50%+</div>
+        <div class="stat-label">Meaningful Usage</div>
+        <div class="stat-sub">Allocation used = strong lead / qualified opportunity threshold</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">25/50</div>
+        <div class="stat-label">Commercial Trigger</div>
+        <div class="stat-sub">D1P: 25 searches · 3PM: 50 searches → auto SFDC opp created</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- TAB: EMAILS & PENDO                         -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="tab-comms" class="tab-panel">
+    <div class="grid-2">
+      <div>
+        <div class="section-title"><span>📧</span> Gainsight Email Sequences</div>
+        <div class="accordion">
+          <div class="accordion-intro">
+            All emails sent CSM-as-sender via Gainsight. Placeholders in [brackets] to populate before send.
+            <a href="https://dilcorp-my.sharepoint.com/:w:/g/personal/kstock_diligent_com/IQClQnS9EPQxTKQzZEsCpDMrAbhQe29WPdmMcMDcqT8vEXI?e=g0d1WM" target="_blank">View full copy doc →</a>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" onclick="toggleAcc(this)">
+              <div><div class="acc-label-main">E1 — Entitled Customer Announcement</div><div class="acc-label-sub">Day 0 · All eligible D1P + 3PM · "Your free trial is ready"</div></div>
+              <span class="acc-chevron">▼</span>
+            </button>
+            <div class="acc-body">
+              <div class="acc-trigger"><span>Day 0</span><span>D1P + 3PM</span><span>T&amp;Cs not yet accepted</span></div>
+              <p><strong>Subject:</strong> Your free trial of Third-Party Risk Intel is ready</p>
+              <p>Hi [First Name], I wanted to make sure you knew — Third-Party Risk Intel (TPRI) is now available for your team, at no cost. TPRI is an AI agent that investigates your third parties for you. What normally takes a compliance analyst two to four hours takes TPRI a few minutes.</p>
+              <p>Your free trial includes [50 (D1P) / 100 (3PM)] screenings — usage-based, no time limit, no paperwork. I'm happy to walk through activation with you live — just reply and we can find 20 minutes.</p>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" onclick="toggleAcc(this)">
+              <div><div class="acc-label-main">E2 — Non-Entitled General Awareness</div><div class="acc-label-sub">Rolling · Not yet provisioned · "How peers cut screening time by 80%"</div></div>
+              <span class="acc-chevron">▼</span>
+            </button>
+            <div class="acc-body">
+              <div class="acc-trigger"><span>Rolling</span><span>Not yet provisioned</span></div>
+              <p><strong>Subject:</strong> How your peers are cutting third-party screening time by 80%</p>
+              <p>Hi [First Name], Third-party risk teams at companies like General Mills and Flowserve are now using Diligent's AI-powered screening to get through routine vendor reviews faster — without adding headcount. The tool is called Third-Party Risk Intel (TPRI). We're currently running a free trial program for existing Diligent customers. Would it be worth a quick conversation to see if it's a fit?</p>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" onclick="toggleAcc(this)">
+              <div><div class="acc-label-main">E3 — Trial Welcome + Onboarding</div><div class="acc-label-sub">Day 0 · T&amp;Cs accepted · "You're in"</div></div>
+              <span class="acc-chevron">▼</span>
+            </button>
+            <div class="acc-body">
+              <div class="acc-trigger"><span>Day 0</span><span>T&amp;Cs accepted</span><span>D1P + 3PM</span></div>
+              <p><strong>Subject:</strong> You're in — here's how to get your first TPRI result</p>
+              <p>You're officially in the TPRI free trial. Your first three steps: (1) [D1P] Open Diligent One → TPRI tile → accept T&amp;Cs / [3PM] Settings → AI Services → AI Screening → enable → create custom role and assign users. (2) Navigate to a third-party profile or enter a company name. (3) Review the AI-generated report — pay attention to the narrative summary at the top.</p>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" onclick="toggleAcc(this)">
+              <div><div class="acc-label-main">E4 — Platform Video + Getting Started</div><div class="acc-label-sub">Day 1–3 · No screening yet · "2 minutes to see TPRI in action"</div></div>
+              <span class="acc-chevron">▼</span>
+            </button>
+            <div class="acc-body">
+              <div class="acc-trigger"><span>Day 1–3</span><span>0 screenings run</span></div>
+              <p><strong>Subject:</strong> 2 minutes to see TPRI in action</p>
+              <p>Just following up with a short walkthrough video showing exactly how TPRI works — from entering a company name to reading the risk report. Key things to notice: the narrative summary (the AI explains why it flagged something), Key Personnel screening, and the PDF report (ready for audit files or sharing).</p>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" onclick="toggleAcc(this)">
+              <div><div class="acc-label-main">E5 — T&amp;Cs Not Accepted Nudge</div><div class="acc-label-sub">Day 5 · D1P only · "One step left"</div></div>
+              <span class="acc-chevron">▼</span>
+            </button>
+            <div class="acc-body">
+              <div class="acc-trigger"><span>Day 5</span><span>D1P only</span><span>T&amp;Cs not accepted</span></div>
+              <p><strong>Subject:</strong> Quick reminder — one step left to activate your TPRI trial</p>
+              <p>Your TPRI access is ready — you just need to accept the Terms &amp; Conditions to unlock your free screenings. It takes less than a minute: Log in to Diligent One → click the TPRI tile → accept T&amp;Cs. If you ran into any trouble finding the tile, let me know.</p>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" onclick="toggleAcc(this)">
+              <div><div class="acc-label-main">E6 — No Screenings Run Nudge</div><div class="acc-label-sub">Day 7 · 0 screenings · "Ready to run your first screening?"</div></div>
+              <span class="acc-chevron">▼</span>
+            </button>
+            <div class="acc-body">
+              <div class="acc-trigger"><span>Day 7</span><span>D1P + 3PM</span><span>0 screenings run</span></div>
+              <p><strong>Subject:</strong> You're set up — ready to run your first screening?</p>
+              <p>Your TPRI trial is active, but I noticed your team hasn't run a screening yet. Common blockers: D1P: T&amp;Cs may need accepting. 3PM: AI Screening requires a custom role — out-of-box roles don't include it. I'm happy to jump on a quick call and walk through the first screening together. Most teams are up and running within 15 minutes.</p>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" onclick="toggleAcc(this)">
+              <div><div class="acc-label-main">E7 — Mid-Trial Check-In</div><div class="acc-label-sub">~50% usage · "How's it going?"</div></div>
+              <span class="acc-chevron">▼</span>
+            </button>
+            <div class="acc-body">
+              <div class="acc-trigger"><span>~50% allocation used</span><span>D1P + 3PM</span></div>
+              <p><strong>Subject:</strong> How's the TPRI trial going? A few things worth knowing</p>
+              <p>You're about halfway through your TPRI trial. Questions worth asking: Have the results been useful? Are the right users set up with access? Is there a specific use case — sanctions screening, ownership mapping, high-risk vendor review — where you'd like to focus remaining screenings? I'd also love any candid feedback — we're actively incorporating trial user input into the roadmap.</p>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" onclick="toggleAcc(this)">
+              <div><div class="acc-label-main">E8 — Post-Trial Conversion Ask</div><div class="acc-label-sub">Trial ending · Active users · "Here's what's next"</div></div>
+              <span class="acc-chevron">▼</span>
+            </button>
+            <div class="acc-body">
+              <div class="acc-trigger"><span>Trial end</span><span>Meaningful activity</span></div>
+              <p><strong>Subject:</strong> Your TPRI trial is wrapping up — here's what's next</p>
+              <p>Options: (1) Convert to paid — from $5K/yr for 3PM add-on, $35K/yr for full TPRI with continuous monitoring. (2) Explore a different tier. (3) Pause and revisit in 30–60 days. Your screening data is retained 30 days after trial ends. Can we find 30 minutes to talk through what makes sense for your program?</p>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" onclick="toggleAcc(this)">
+              <div><div class="acc-label-main">E9–E15 — 3PM-Specific + Re-engagement Series</div><div class="acc-label-sub">First Notice · Follow-up · D1P Pivot · Usage Nudge · Wrap · Lapsed Re-engagement · Webinar</div></div>
+              <span class="acc-chevron">▼</span>
+            </button>
+            <div class="acc-body">
+              <p><strong>E9</strong> — Lapsed Re-engagement: "Still interested in TPRI? There's a new way to try it." Highlights product improvements since their trial.</p>
+              <p><strong>E10</strong> — Webinar/Office Hours Invite: Live TPRI demo + Q&amp;A. 10-min demo (D1P + 3PM paths), activation checklist, open Q&amp;A.</p>
+              <p><strong>E11</strong> — 3PM First Notice (Day 0): "TPRI is now live inside your Third-Party Manager." 3-step activation + 100 free screenings messaging.</p>
+              <p><strong>E12</strong> — 3PM Follow-Up (~1 week): Custom role reminder, suggest running one manual-screened vendor through TPRI for comparison.</p>
+              <p><strong>E13</strong> — 3PM → D1P Pivot: Offer to provision a D1P org if 3PM setup not clicking. $0 Trial Order Form, ready in 1–3 business days.</p>
+              <p><strong>E14</strong> — 3PM Usage Nudge: "3 screenings worth running this month" — highest-risk vendor, recently onboarded TP, false-positive candidate.</p>
+              <p><strong>E15</strong> — 3PM Trial Wrap + Conversion: Summary of usage stats + pricing options (Ad-Hoc 3PM from $5K · Full TPRI from $35K · Custom/bundled).</p>
+              <p><a href="https://dilcorp-my.sharepoint.com/:w:/g/personal/kstock_diligent_com/IQClQnS9EPQxTKQzZEsCpDMrAbhQe29WPdmMcMDcqT8vEXI?e=g0d1WM" target="_blank" class="link">View full copy for all 15 emails →</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title"><span>📲</span> Pendo In-App Notifications</div>
+        <div class="accordion">
+          <div class="accordion-intro">
+            All guides target eligible tenants (D1P + 3PM).
+            <a href="https://dilcorp-my.sharepoint.com/:w:/g/personal/kstock_diligent_com/IQDGzIdZ97kZSKkTyGcRhsnGAfNSN98nBGsz9vwQQHwXISg?e=HjLC0R" target="_blank">View full Pendo copy doc →</a>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" onclick="toggleAcc(this)">
+              <div><div class="acc-label-main">Guide 1 — Trial Welcome</div><div class="acc-label-sub">First admin login after TPRI enabled · Modal · D1P + 3PM</div></div>
+              <span class="acc-chevron">▼</span>
+            </button>
+            <div class="acc-body">
+              <p><strong>D1P:</strong> "Your free trial of Third-Party Risk Intel is ready. You have 50 free screenings — no time limit, no contract changes. Find the TPRI tile on your Launchpad, accept T&amp;Cs (~30 seconds), and run your first screening. [Activate Now →]"</p>
+              <p><strong>3PM:</strong> "Third-Party Risk Intel is now available inside your Third-Party Manager. 100 free screenings right inside your existing workflow. Go to Settings → AI Services → AI Screening, create a custom role, and run your first screening from any third-party profile. [Enable AI Screening →]"</p>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" onclick="toggleAcc(this)">
+              <div><div class="acc-label-main">Guide 2 — T&amp;Cs Acceptance Nudge</div><div class="acc-label-sub">T&amp;Cs not accepted within 3 days · Banner</div></div>
+              <span class="acc-chevron">▼</span>
+            </button>
+            <div class="acc-body">
+              <p><strong>D1P:</strong> "One step left to activate your free TPRI trial. Find the TPRI tile on your Launchpad and click through to get started. [Complete Activation →]"</p>
+              <p><strong>3PM:</strong> "Your AI Screening access is enabled — but not yet activated. An admin needs to turn on AI Screening in Settings → AI Services, create a custom role, and assign users. [Go to AI Services Settings →]"</p>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" onclick="toggleAcc(this)">
+              <div><div class="acc-label-main">Guide 3 — First Screening Prompt</div><div class="acc-label-sub">0 screenings after 5 days · Toast/tooltip</div></div>
+              <span class="acc-chevron">▼</span>
+            </button>
+            <div class="acc-body">
+              <p><strong>D1P:</strong> "You're all set — time to run your first screening. Try screening a current high-priority vendor or a recently flagged third party. Most teams see their first result in under 5 minutes. [Run Your First Screening →]"</p>
+              <p><strong>3PM:</strong> "AI Screening is live. Head to any third-party profile, open the AI Screening tab, and enter a company name. Your 100 free screenings don't expire — but the sooner you try it, the sooner you'll see what your team has been doing manually. [Go to a Third-Party Profile →]"</p>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" onclick="toggleAcc(this)">
+              <div><div class="acc-label-main">Guide 4 — Mid-Trial Value Nudge</div><div class="acc-label-sub">~50% allocation used · Modal/banner</div></div>
+              <span class="acc-chevron">▼</span>
+            </button>
+            <div class="acc-body">
+              <p><strong>D1P:</strong> "You're halfway through your free trial. Run a few more screenings on third parties that matter most · download a report to share with your team · book a check-in with your CSM. [Continue Screening →] [Book a Check-In]"</p>
+              <p><strong>3PM:</strong> "You've used about half of your 100 free AI Screenings. Try: (1) Run a high-risk vendor and compare to your current process. (2) Share a PDF report with your compliance lead. (3) Check the custom role to make sure the right users have access. [Run More Screenings →]"</p>
+            </div>
+          </div>
+
+          <div class="acc-item">
+            <button class="acc-header" onclick="toggleAcc(this)">
+              <div><div class="acc-label-main">Guide 5 — Getting Started Tooltip Flow</div><div class="acc-label-sub">First visit to TPRI settings page · Multi-step tooltip</div></div>
+              <span class="acc-chevron">▼</span>
+            </button>
+            <div class="acc-body">
+              <p><strong>D1P (3 steps):</strong> Step 1 — Enable TPRI: Click Enable and accept T&amp;Cs. No paperwork needed. | Step 2 — Configure Screening Preferences: Sanctions, PEP lists, adverse media, and ownership mapping are all on by default. | Step 3 — You're Ready: Head to your third-party list to run your first screening. [Go to My Third Parties →]</p>
+              <p><strong>3PM (3 steps):</strong> Step 1 — Enable AI Screening: Toggle On. ⚠️ EU tenants: change default count 100 → 101, click Save. | Step 2 — Create a Custom Role: Out-of-box roles don't include AI Screening. Create a custom role in Settings → Roles and assign to users. | Step 3 — Run Your First Screening: Navigate to any third-party profile → AI Screening tab → enter company name. [Go to Third-Party List →]</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- TAB: OBJECTIONS & COMPETITIVE               -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="tab-objections" class="tab-panel">
+    <div class="grid-2">
+      <div>
+        <div class="section-title"><span>💬</span> Objection Handling &amp; FAQ</div>
+        <div class="objection"><div class="objection-q">"We already have a screening provider (Refinitiv/D&amp;B)"</div><div class="objection-a">They provide data; we provide answers. Those tools dump thousands of hits on you. TPRI automates the 2–4 hours of manual research your team does after getting those hits to determine what's real.</div></div>
+        <div class="objection"><div class="objection-q">"How is this different from your existing AI features?"</div><div class="objection-a">Legacy AI summarized static screening results. Third-Party Risk Intel maps the corporate structure before screening, discovering risk hidden in ownership that standard tools miss entirely.</div></div>
+        <div class="objection"><div class="objection-q">"Is this using my data to train a public model?"</div><div class="objection-a">Absolutely not. The system uses a RAG architecture. Your data is isolated in your tenant and is never used to train shared models. AWS Bedrock does not store or log prompts and completions for model training.</div></div>
+        <div class="objection"><div class="objection-q">"What happens if the AI misses something?"</div><div class="objection-a">TPRI is a human-in-the-loop system. It provides citations for every finding. It's an efficiency tool to clear low/medium risks — not a replacement for your final judgment on high-risk entities.</div></div>
+        <div class="objection"><div class="objection-q">"My 3PM client enabled AI Screening but users can't see it."</div><div class="objection-a">Out-of-box roles do NOT include AI Screening permissions. The admin must create a custom role with AI Screening access and assign it to the relevant users.</div></div>
+        <div class="objection"><div class="objection-q">"My EU client says 'No searches remaining' even though they just enabled it."</div><div class="objection-a">Known display issue. Workaround: go to AI Services settings, change the default value from 100 to 101, and click Save. Cosmetic only — searches are available. Permanent fix coming in a future release.</div></div>
+        <div class="objection"><div class="objection-q">"Can a client have TPRI on both D1P and 3PM?"</div><div class="objection-a">Yes — 100 (3PM) + 50 (D1P) = 150 total during trial. We allow this to maximize feedback, but guide customers toward D1P for the richer experience.</div></div>
+        <div class="objection"><div class="objection-q">"Can a 3PM customer without D1P try full TPRI?"</div><div class="objection-a">Yes — any customer can get a new D1P org provisioned. $0 Trial Order Form, Entitlements sets up a fresh D1P tenant within 1–3 business days.</div></div>
+        <div class="objection"><div class="objection-q">"Does TPRI access my existing Diligent system data?"</div><div class="objection-a">No. TPRI only processes the search subject entered by the user. It does not touch questionnaires, workflows, approvals, cases, or other internal records. Admin opt-in required before anything runs.</div></div>
+        <div class="objection"><div class="objection-q">"The pricing seems high."</div><div class="objection-a">Consider the current process: analyst time at $75/hr × 2–4 hours × 500 entities = $75K–$150K annually. TPRI pays for itself on time savings alone, before factoring in risk reduction. Sanctions breaches carry average costs exceeding $14M per event.</div></div>
+      </div>
+      <div>
+        <div class="section-title"><span>🏆</span> Competitive Quick Reference</div>
+        <div class="mb-20">
+          <table class="comp-table">
+            <thead><tr><th>Competitor</th><th>Their Limitation</th><th>Our Differentiator</th></tr></thead>
+            <tbody>
+              <tr><td class="comp-name">Exiger</td><td>Black-box AI, limited transparency</td><td>Explainable, citation-backed risk grounded in documented due diligence methodologies</td></tr>
+              <tr><td class="comp-name">GAN Integrity</td><td>Lightweight screening, no deep ownership mapping</td><td>Deep entity resolution surfacing indirect relationships and hidden risk early</td></tr>
+              <tr><td class="comp-name">Dow Jones / Refinitiv</td><td>Raw data dumps, manual review required</td><td>Synthesized intelligence — clear, actionable signals, not data floods</td></tr>
+              <tr><td class="comp-name">Dun &amp; Bradstreet</td><td>Static data, no narrative context</td><td>Contextualized insight explaining why relationships matter, not just that they exist</td></tr>
+              <tr><td class="comp-name">ProcessUnity / NAVEX</td><td>Strong workflows, limited intelligence</td><td>Intelligence-led triage embedded into workflows, reducing manual effort</td></tr>
+              <tr><td class="comp-name">Xapien</td><td>Black-box reports, high unit cost, weak integration</td><td>Scalable, explainable intelligence integrated into workflows — continuous use, not one-off reports</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="section-title" style="font-size:13.5px;"><span>🗺️</span> Product Routing Rule of Thumb</div>
+        <div class="routing-rules mb-20">
+          <div class="routing-rule"><span>"Risk workflows and assessments at scale"</span><span class="arrow">→</span><span class="dest">3rdRisk</span></div>
+          <div class="routing-rule"><span>"Defensible due diligence / KYC / AML"</span><span class="arrow">→</span><span class="dest">3PM</span></div>
+          <div class="routing-rule"><span>"Fast screening and visibility"</span><span class="arrow">→</span><span class="dest">TPRI</span></div>
+        </div>
+
+        <div class="section-title" style="font-size:13.5px;"><span>🧩</span> TPRI Across the Portfolio</div>
+        <div class="portfolio-grid">
+          <div class="portfolio-row"><span class="portfolio-product">+ 3PM</span><span class="portfolio-value">TPRI automates entity resolution and triage; 3PM provides the system of record. Together: a closed-loop, defensible due diligence process.</span></div>
+          <div class="portfolio-row"><span class="portfolio-product">+ Due Diligence Services</span><span class="portfolio-value">TPRI qualifies risk earlier and sends better-qualified, citation-backed cases into DDS — so analyst capacity goes to the highest-risk entities.</span></div>
+          <div class="portfolio-row"><span class="portfolio-product">+ Entities</span><span class="portfolio-value">For M&amp;A: combining entity/subsidiary management with automated investigation enables thorough screening of inherited third-party ecosystems post-close.</span></div>
+          <div class="portfolio-row"><span class="portfolio-product">+ Boards</span><span class="portfolio-value">Translates complex risk data into clear, defensible insights within D1P, helping compliance teams report with confidence to the board.</span></div>
+          <div class="portfolio-row"><span class="portfolio-product">+ 3rdRisk</span><span class="portfolio-value">TPRI serves as the intelligence layer for 3rdRisk workflows — deeper automated investigation at scale.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════ -->
+  <!-- TAB: RESOURCES                              -->
+  <!-- ═══════════════════════════════════════════ -->
+  <div id="tab-resources" class="tab-panel">
+    <div class="grid-3">
+      <div>
+        <div class="resource-group">
+          <div class="resource-group-title">Demos &amp; Videos</div>
+          <div class="resource-list">
+            <a class="resource-item" href="https://diligent.navattic.com/dzh0ynh" target="_blank"><span class="resource-icon">🖥️</span><span class="resource-label">Interactive Demo — D1P</span><span class="resource-tag tag-green">Customer</span><span class="resource-arrow">↗</span></a>
+            <a class="resource-item" href="https://diligent.navattic.com/cgt01nn" target="_blank"><span class="resource-icon">🖥️</span><span class="resource-label">Interactive Demo — 3PM</span><span class="resource-tag tag-green">Customer</span><span class="resource-arrow">↗</span></a>
+            <a class="resource-item" href="https://share.vidyard.com/watch/kMHfF8SMEX7BYCyx94PaKo" target="_blank"><span class="resource-icon">▶️</span><span class="resource-label">Activation Video — 3PM</span><span class="resource-tag tag-green">Live</span><span class="resource-arrow">↗</span></a>
+            <a class="resource-item" href="#" target="_blank"><span class="resource-icon">▶️</span><span class="resource-label">Activation Video — D1P</span><span class="resource-tag tag-amber">Coming Wed</span><span class="resource-arrow">↗</span></a>
+            <a class="resource-item" href="https://share.vidyard.com/watch/XwaFijPdJ3ZcfnSrMpjXUj" target="_blank"><span class="resource-icon">▶️</span><span class="resource-label">3PM New UI Walkthrough</span><span class="resource-tag tag-blue">Internal</span><span class="resource-arrow">↗</span></a>
+            <a class="resource-item" href="#" target="_blank"><span class="resource-icon">🎬</span><span class="resource-label">Sizzle / Commercial Video</span><span class="resource-tag tag-amber">Coming Fri</span><span class="resource-arrow">↗</span></a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="resource-group">
+          <div class="resource-group-title">Customer-Facing Assets</div>
+          <div class="resource-list">
+            <a class="resource-item" href="#" target="_blank"><span class="resource-icon">📘</span><span class="resource-label">Getting Started Guide — 3PM</span><span class="resource-tag tag-green">Customer</span><span class="resource-arrow">↗</span></a>
+            <a class="resource-item" href="#" target="_blank"><span class="resource-icon">📘</span><span class="resource-label">Getting Started Guide — D1P</span><span class="resource-tag tag-green">Customer</span><span class="resource-arrow">↗</span></a>
+            <a class="resource-item" href="https://dilcorp-my.sharepoint.com/:w:/g/personal/dzmak_diligent_com/IQDELDXQonvfR4QkLOtRavJdASTQ64jTsDWr327zSNt6wdA?e=SY3m68" target="_blank"><span class="resource-icon">📄</span><span class="resource-label">AI Fact Sheet</span><span class="resource-tag tag-amber">⚠️ Unbranded until Fri</span><span class="resource-arrow">↗</span></a>
+            <a class="resource-item" href="https://help.diligentoneplatform.com/helpdocs/third-party-manager/Content/third_party_manager/using_third_party_manager.htm#Getting" target="_blank"><span class="resource-icon">❓</span><span class="resource-label">3PM New UI Help Doc</span><span class="resource-tag tag-green">Help Center</span><span class="resource-arrow">↗</span></a>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="resource-group">
+          <div class="resource-group-title">Internal Enablement</div>
+          <div class="resource-list">
+            <a class="resource-item" href="https://dilcorp.sharepoint.com/:w:/s/DIL-Compliance-All745/IQCdlJotmC47RYBkG6ijUZMhAdkNZXCxXFf8uyq-k7NLhyI?e=IsIIFB" target="_blank"><span class="resource-icon">📋</span><span class="resource-label">Positioning &amp; Messaging Framework</span><span class="resource-tag tag-blue">Internal</span><span class="resource-arrow">↗</span></a>
+            <a class="resource-item" href="https://dilcorp-my.sharepoint.com/:p:/g/personal/jcameron_diligent_com/IQBIzVSGNH2STLsYKHuiVt2qAX9t1SeBuRhM9Zb7Hcnoxuc?e=gMRucR" target="_blank"><span class="resource-icon">📊</span><span class="resource-label">3rdRisk vs 3PM vs TPRI Deck</span><span class="resource-tag tag-blue">Internal</span><span class="resource-arrow">↗</span></a>
+            <a class="resource-item" href="https://dilcorp-my.sharepoint.com/:w:/g/personal/dzmak_diligent_com/IQDu5vDIiJomT5VgVsxo1yx6AQLNNJzmT1yZnwmHsvCxlVc" target="_blank"><span class="resource-icon">📝</span><span class="resource-label">CS Enablement Script</span><span class="resource-tag tag-blue">Internal</span><span class="resource-arrow">↗</span></a>
+            <a class="resource-item" href="https://dilcorp-my.sharepoint.com/:w:/g/personal/kstock_diligent_com/IQClQnS9EPQxTKQzZEsCpDMrAbhQe29WPdmMcMDcqT8vEXI?e=g0d1WM" target="_blank"><span class="resource-icon">📧</span><span class="resource-label">Gainsight Email Copy (all 15)</span><span class="resource-tag tag-blue">Internal</span><span class="resource-arrow">↗</span></a>
+            <a class="resource-item" href="https://dilcorp-my.sharepoint.com/:w:/g/personal/kstock_diligent_com/IQDGzIdZ97kZSKkTyGcRhsnGAfNSN98nBGsz9vwQQHwXISg?e=HjLC0R" target="_blank"><span class="resource-icon">📲</span><span class="resource-label">Pendo In-App Notification Copy</span><span class="resource-tag tag-blue">Internal</span><span class="resource-arrow">↗</span></a>
+            <a class="resource-item" href="https://dilcorp-my.sharepoint.com/:p:/g/personal/kstock_diligent_com/IQAd3Ym4neCxRYsmT3QJp6DRAbaQvv0QjfiK5lVQBdNPBms" target="_blank"><span class="resource-icon">🗂</span><span class="resource-label">GTM Activation Deck (Full)</span><span class="resource-tag tag-blue">Internal</span><span class="resource-arrow">↗</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+    <div class="section-title"><span>👥</span> Key Contacts</div>
+    <div class="contacts-grid">
+      <div class="contact-card"><div class="contact-avatar">KS</div><div><div class="contact-name">Kaylan Stock</div><div class="contact-role">Sr. Staff PMM, Compliance BU</div><a class="contact-email" href="mailto:kstock@diligent.com">kstock@diligent.com</a></div></div>
+      <div class="contact-card"><div class="contact-avatar">MP</div><div><div class="contact-name">Mihai (Claudiu) Popa</div><div class="contact-role">Principal PMM, TPRI</div><a class="contact-email" href="mailto:cpopa@diligent.com">cpopa@diligent.com</a></div></div>
+      <div class="contact-card"><div class="contact-avatar">DZ</div><div><div class="contact-name">Daniel Zmak</div><div class="contact-role">Sr. Director, Product Management</div><a class="contact-email" href="mailto:dzmak@diligent.com">dzmak@diligent.com</a></div></div>
+      <div class="contact-card"><div class="contact-avatar">RV</div><div><div class="contact-name">Ramya Venkatesh</div><div class="contact-role">Product Lead, Compliance AI / TPRI</div><a class="contact-email" href="mailto:rvenkatesh@diligent.com">rvenkatesh@diligent.com</a></div></div>
+      <div class="contact-card"><div class="contact-avatar">RS</div><div><div class="contact-name">Rory Sherony</div><div class="contact-role">CS Ops — Gainsight Sequences</div><a class="contact-email" href="#">Contact via Teams</a></div></div>
+    </div>
+
+    <div style="margin-top:28px;padding:12px 16px;background:var(--bg-light);border-radius:6px;border:1px solid var(--border);font-size:11.5px;color:var(--text-light);text-align:center;">
+      © 2026 Diligent Corporation · Internal — CS &amp; Sales Reference · Last updated: June 2026
+    </div>
+  </div>
+
+</div>
+
+<script>
+// Tab switching
+function switchTab(e, id) {
+  document.querySelectorAll('.nav-tab').forEach(function(t) { t.classList.remove('active'); });
+  document.querySelectorAll('.tab-panel').forEach(function(p) { p.classList.remove('active'); });
+  e.currentTarget.classList.add('active');
+  document.getElementById('tab-' + id).classList.add('active');
+  // Scroll to top within the iframe
+  window.scrollTo(0, 0);
+}
+
+// Accordion toggle
+function toggleAcc(btn) {
+  var item = btn.closest('.acc-item');
+  item.classList.toggle('open');
+}
+
+// Force scroll to top on every load
+window.addEventListener('load', function() {
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+});
+
+// Also force on DOMContentLoaded (fires earlier)
+document.addEventListener('DOMContentLoaded', function() {
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+});
+</script>
+</body>
+</html>
